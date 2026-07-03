@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-50: #f0f3f8;
+  --color-navy-100: #d9e0ed;
+  --color-navy-200: #b3c1db;
+  --color-navy-300: #8da2c9;
+  --color-navy-400: #6783b7;
+  --color-navy-500: #4164a5;
+  --color-navy-600: #345084;
+  --color-navy-700: #273c63;
+  --color-navy-800: #1a2842;
+  --color-navy-900: #0d1421;
+  --color-navy-950: #060a10;
+
+  --color-gold-50: #fdf8e8;
+  --color-gold-100: #faefc5;
+  --color-gold-200: #f5df8b;
+  --color-gold-300: #f0cf51;
+  --color-gold-400: #e8be1d;
+  --color-gold-500: #c9a210;
+  --color-gold-600: #a07f0c;
+  --color-gold-700: #785f09;
+  --color-gold-800: #503f06;
+  --color-gold-900: #282003;
+
+  --font-display: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+  --font-elegant: "Cormorant Garamond", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #c9a210, #f0cf51, #e8be1d, #c9a210);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated underline */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #c9a210, #f0cf51);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* WhatsApp pulse animation */
+@keyframes whatsapp-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-pulse {
+  animation: whatsapp-pulse 2s infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+
+/* Shimmer effect for gold borders */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #785f09, #c9a210, #f0cf51, #c9a210, #785f09);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Parallax overlay */
+.hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(6, 10, 16, 0.7) 0%,
+    rgba(13, 20, 33, 0.6) 40%,
+    rgba(13, 20, 33, 0.8) 70%,
+    rgba(6, 10, 16, 0.95) 100%
+  );
+}
+
+/* Card hover effect */
+.fleet-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fleet-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(201, 162, 16, 0.1);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1421;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c9a210, #785f09);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #f0cf51, #c9a210);
+}
